@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Indonesia Villages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>District</th>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @indonesia_villages.each do |indonesia_village| %>
+      <tr>
+        <td><%= indonesia_village.district_id %></td>
+        <td><%= indonesia_village.name %></td>
+        <td><%= link_to 'Show', indonesia_village %></td>
+        <td><%= link_to 'Edit', edit_indonesia_village_path(indonesia_village) %></td>
+        <td><%= link_to 'Destroy', indonesia_village, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Indonesia Village', new_indonesia_village_path %>

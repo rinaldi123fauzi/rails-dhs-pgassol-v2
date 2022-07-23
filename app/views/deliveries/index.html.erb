@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Deliveries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Delivery place</th>
+      <th>Delivery inconterm</th>
+      <th>Delivery date</th>
+      <th>Delivery vat</th>
+      <th>Delivery term payment</th>
+      <th>Delivery note</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @deliveries.each do |delivery| %>
+      <tr>
+        <td><%= delivery.delivery_place %></td>
+        <td><%= delivery.delivery_inconterm %></td>
+        <td><%= delivery.delivery_date %></td>
+        <td><%= delivery.delivery_vat %></td>
+        <td><%= delivery.delivery_term_payment %></td>
+        <td><%= delivery.delivery_note %></td>
+        <td><%= link_to 'Show', delivery %></td>
+        <td><%= link_to 'Edit', edit_delivery_path(delivery) %></td>
+        <td><%= link_to 'Destroy', delivery, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Delivery', new_delivery_path %>

@@ -1,0 +1,92 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Form Brochure</div>
+  <div class="panel-body">
+    <%= form_for @brochure, html: {class: 'form-horizontal'} do |f| %>
+      <% if @brochure.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@brochure.errors.count, "error") %> prohibited this brochure from being saved:</h2>
+
+          <ul>
+            <% @brochure.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= f.label :item_id %>
+            <%= f.collection_select :item_id, Item.order(:general_spec), :id, :general_spec, {prompt: "Select a Item"}, {:class => 'form-control select2'} %>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= f.label :brochure_title %>
+            <%= f.text_field :brochure_title, class: 'form-control' %>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= f.label :brochure_path %>
+            <%= f.file_field :brochure_path, class: "form-control", accept: 'file/*', onchange: "validateFiles(this);", required: true,
+                             data: {max_file_size: 100.megabytes}%>
+          </div>
+        </div>
+      </fieldset>
+
+      <script type="text/javascript">
+          function validateFiles(inputFile) {
+              var maxExceededMessage = "This file exceeds the maximum allowed file size (100 MB)";
+              var extErrorMessage = "Only doc file with extension: .pdf or .docs is allowed";
+              var allowedExtension = ["pdf","docs"];
+
+              var extName;
+              var maxFileSize = $(inputFile).data('max-file-size');
+              var sizeExceeded = false;
+              var extError = false;
+
+              $.each(inputFile.files, function () {
+                  if (this.size && maxFileSize && this.size > parseInt(maxFileSize)) {
+                      sizeExceeded = true;
+                  }
+                  ;
+                  extName = this.name.split('.').pop();
+                  if ($.inArray(extName, allowedExtension) == -1) {
+                      extError = true;
+                  }
+                  ;
+              });
+              if (sizeExceeded) {
+                  window.alert(maxExceededMessage);
+                  $(inputFile).val('');
+              }
+              ;
+
+              if (extError) {
+                  window.alert(extErrorMessage);
+                  $(inputFile).val('');
+              }
+              ;
+          }
+      </script>
+
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= link_to 'Cancel', brochures_path, class: 'btn btn-default' %>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </fieldset>
+    <% end %>
+  </div>
+</div>

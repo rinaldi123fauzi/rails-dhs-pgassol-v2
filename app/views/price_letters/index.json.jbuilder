@@ -1,0 +1,1 @@
+json.array! @price_letters, partial: 'price_letters/price_letter', as: :price_letter

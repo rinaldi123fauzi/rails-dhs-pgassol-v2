@@ -1,0 +1,45 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Form Country</div>
+  <div class="panel-body">
+    <%= form_for @country, html: {class: 'form-horizontal'} do |f| %>
+      <% if @country.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@country.errors.count, "error") %> prohibited this country from being saved:</h2>
+
+          <ul>
+            <% @country.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= f.label :country_code %>
+            <%= f.text_field :country_code, class: 'form-control' %>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= f.label :country_name %>
+            <%= f.text_field :country_name, class: 'form-control' %>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= link_to 'Cancel', countries_path, class: 'btn btn-default' %>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </fieldset>
+    <% end %>
+  </div>
+</div>

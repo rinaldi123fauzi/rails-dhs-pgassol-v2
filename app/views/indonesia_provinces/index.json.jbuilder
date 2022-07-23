@@ -1,0 +1,1 @@
+json.array! @indonesia_provinces, partial: 'indonesia_provinces/indonesia_province', as: :indonesia_province

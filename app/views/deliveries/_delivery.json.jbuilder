@@ -1,0 +1,2 @@
+json.extract! delivery, :id, :delivery_place, :delivery_inconterm, :delivery_date, :delivery_vat, :delivery_term_payment, :delivery_note, :created_at, :updated_at
+json.url delivery_url(delivery, format: :json)

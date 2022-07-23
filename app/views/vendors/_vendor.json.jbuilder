@@ -1,0 +1,2 @@
+json.extract! vendor, :id, :name, :country_id, :business_category, :address, :website, :email, :phone_number, :pic1, :position1, :email1, :phone1, :pic2, :position2, :email2, :phone2, :created_at, :updated_at
+json.url vendor_url(vendor, format: :json)

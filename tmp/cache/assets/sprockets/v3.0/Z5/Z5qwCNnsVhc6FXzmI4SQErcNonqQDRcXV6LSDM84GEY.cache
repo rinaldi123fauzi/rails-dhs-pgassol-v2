@@ -1,0 +1,15 @@
+I"E(function() {
+  jQuery(function() {
+    return $('#UserActivityIndex').dataTable({
+      sPaginationType: "full_numbers",
+      bJQueryUI: false,
+      scrollY: 300,
+      scrollX: true,
+      bProcessing: true,
+      bServerSide: true,
+      sAjaxSource: $('#UserActivityIndex').data('source')
+    });
+  });
+
+}).call(this);
+:ET

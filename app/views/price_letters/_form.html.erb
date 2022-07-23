@@ -1,0 +1,82 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Form Price Letters</div>
+  <div class="panel-body">
+    <%= form_for @price_letter, html: {class: 'form-horizontal'} do |f| %>
+      <% if @price_letter.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@price_letter.errors.count, "error") %> prohibited this price_letter from being saved:</h2>
+
+          <ul>
+            <% @price_letter.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= f.label :price_letter_title %>
+            <%= f.text_field :price_letter_title, class: 'form-control' %>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= f.label :price_letter_path %>
+            <%= f.file_field :price_letter_path, class: "form-control", accept: 'file/*', onchange: "validateFiles(this);",
+                             data: {max_file_size: 100.megabytes}%>
+          </div>
+        </div>
+      </fieldset>
+
+      <script type="text/javascript">
+          function validateFiles(inputFile) {
+              var maxExceededMessage = "This file exceeds the maximum allowed file size (100 MB)";
+              var extErrorMessage = "Only doc file with extension: .pdf or .docs is allowed";
+              var allowedExtension = ["pdf","docs"];
+
+              var extName;
+              var maxFileSize = $(inputFile).data('max-file-size');
+              var sizeExceeded = false;
+              var extError = false;
+
+              $.each(inputFile.files, function () {
+                  if (this.size && maxFileSize && this.size > parseInt(maxFileSize)) {
+                      sizeExceeded = true;
+                  }
+                  ;
+                  extName = this.name.split('.').pop();
+                  if ($.inArray(extName, allowedExtension) == -1) {
+                      extError = true;
+                  }
+                  ;
+              });
+              if (sizeExceeded) {
+                  window.alert(maxExceededMessage);
+                  $(inputFile).val('');
+              }
+              ;
+
+              if (extError) {
+                  window.alert(extErrorMessage);
+                  $(inputFile).val('');
+              }
+              ;
+          }
+      </script>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= link_to 'Cancel', price_letters_path, class: 'btn btn-default' %>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </fieldset>
+    <% end %>
+  </div>
+</div>

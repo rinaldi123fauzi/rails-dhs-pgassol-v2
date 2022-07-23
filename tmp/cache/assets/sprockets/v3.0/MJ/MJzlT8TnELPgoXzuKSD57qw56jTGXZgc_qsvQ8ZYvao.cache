@@ -1,0 +1,13 @@
+I"(function() {
+  jQuery(function() {
+    return $('#UserIndex').dataTable({
+      sPaginationType: "full_numbers",
+      bJQueryUI: false,
+      bProcessing: true,
+      bServerSide: true,
+      sAjaxSource: $('#UserIndex').data('source')
+    });
+  });
+
+}).call(this);
+:ET

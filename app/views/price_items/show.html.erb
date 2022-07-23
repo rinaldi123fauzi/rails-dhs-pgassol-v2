@@ -1,0 +1,150 @@
+<% content_for :ribbon do %>
+  <!-- RIBBON -->
+  <div id="ribbon">
+
+  <span class="ribbon-button-alignment">
+    <span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh" rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
+      <i class="fa fa-refresh"></i>
+    </span>
+  </span>
+
+    <!-- breadcrumb -->
+    <ol class="breadcrumb">
+      <li>Home</li>
+      <li>Tables</li>
+      <li>Normal Tables</li>
+    </ol>
+    <!-- end breadcrumb -->
+
+    <!-- You can also atd more buttons to the
+    ribbon for further usability
+
+    Example below:
+
+    <span class="ribbon-button-alignment pull-right">
+    <span id="search" class="btn btn-ribbon hitden-xs" data-title="search"><i class="fa-grid"></i> Change Grid</span>
+    <span id="atd" class="btn btn-ribbon hitden-xs" data-title="atd"><i class="fa-plus"></i> Atd</span>
+    <span id="search" class="btn btn-ribbon" data-title="search"><i class="fa-search"></i> <span class="hitden-mobile">Search</span></span>
+    </span> -->
+
+  </div>
+  <!-- END RIBBON -->
+<% end %>
+<div id="content">
+  <div class="page-header">
+    <%= link_to :back, class: 'btn btn-default' do %>
+      <span class="glyphicon glyphicon-list-alt"></span>
+      Back
+    <% end %>
+    <%= link_to edit_price_item_path(@price_item), class: 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-pencil"></span>
+      Edit
+    <% end %>
+    <h1>Show price_item</h1>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            Detail Price Item
+          </div>
+          <div class="panel-body">
+            <table class="table table-bordered table-striped table-hover">
+              <tbody>
+              <tr>
+                <td colspan="2">Price Letter</td>
+                <td><%= @getPriceItem.first.price_letter_title.try(:to_s) %></td>
+              </tr>
+              <tr>
+                <td colspan="2">Reference Item</td>
+                <td><%= @getPriceItem.first.namereferensi_items.try(:to_s) %></td>
+              </tr>
+              <tr>
+                <td colspan="2">Country</td>
+                <td><%= @getPriceItem.first.country_name.try(:to_s) %></td>
+              </tr>
+              <tr>
+                <td colspan="2">Vendor</td>
+                <td><%= @getPriceItem.first.namevendors.try(:to_s) %></td>
+              </tr>
+              <tr>
+                <td colspan="2">Currency</td>
+                <td><%= @getPriceItem.first.current_name.try(:to_s) %></td>
+              </tr>
+              <tr>
+                <td colspan="2">General Spec</td>
+                <td><%= @getPriceItem.first.general_spec.try(:to_s) %></td>
+              </tr>
+              <tr>
+                <td colspan="2">Project name:</td>
+                <td><%= @getPriceItem.first.project_name.try(:to_s) %></td>
+              </tr>
+              <tr>
+                <td colspan="2">Incoterm:</td>
+                <td><%= @getPriceItem.first.incoterm.try(:to_s) %></td>
+              </tr>
+              <tr>
+                <td colspan="2">Date:</td>
+                <td><%= @getPriceItem.first.date.try(:to_s) ? @getPriceItem.first.date.strftime('%d %m %Y').try(:to_s) : "" %></td>
+              </tr>
+              <tr>
+                <td colspan="2">Vat:</td>
+                <td><%= @getPriceItem.first.vat.try(:to_s) %></td>
+              </tr>
+              <tr>
+                <td colspan="2">Term payment:</td>
+                <td><%= @getPriceItem.first.term_payment.try(:to_s) %></td>
+              </tr>
+              <tr>
+                <td colspan="2">Delivery time:</td>
+                <td><%= @getPriceItem.first.delivery_time.try(:to_s) %></td>
+              </tr>
+              <tr>
+                <td colspan="2">Price:</td>
+                <td><%= number_to_currency(@getPriceItem.first.price.try(:to_s), :unit => "#{@getPriceItem.first.current_name.to_s}") %></td>
+              </tr>
+              <tr>
+                <td colspan="2">Status:</td>
+                <td><%= @getPriceItem.first.status.try(:to_s) %></td>
+              </tr>
+              <tr>
+                <td colspan="2">Note:</td>
+                <td><%= @getPriceItem.first.note.try(:to_s) %></td>
+              </tr>
+              <tr>
+                <td colspan="2">Last:</td>
+                <td><%= @getPriceItem.first.last.try(:to_s) %></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</dl>

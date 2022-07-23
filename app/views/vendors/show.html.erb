@@ -1,0 +1,92 @@
+<div id="content">
+  <div class="page-header">
+    <%= link_to vendors_path, class: 'btn btn-default' do %>
+      <span class="glyphicon glyphicon-list-alt"></span>
+      Back
+    <% end %>
+    <%= link_to edit_vendor_path(@vendor), class: 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-pencil"></span>
+      Edit
+    <% end %>
+    <h1>Show Vendor</h1>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            Detail Vendor
+          </div>
+          <div class="panel-body">
+            <table class="table table-bordered table-striped table-hover">
+              <tbody>
+              <tr>
+                <td>Name:</td>
+                <td><%= @vendor.name %></td>
+              </tr>
+              <tr>
+                <td>Country:</td>
+                <td><%= @vendor.country_id %></td>
+              </tr>
+              <tr>
+                <td>Business category:</td>
+                <td><%= @vendor.business_category %></td>
+              </tr>
+              <tr>
+                <td>Atdress:</td>
+                <td><%= @vendor.address %></td>
+              </tr>
+
+              <tr>
+                <td>Website:</td>
+                <td><%= @vendor.website %></td>
+              </tr>
+              <tr>
+                <td>Email:</td>
+                <td><%= @vendor.email %></td>
+              </tr>
+              <tr>
+                <td>Phone number:</td>
+                <td><%= @vendor.phone_number %></td>
+              </tr>
+              <tr>
+                <td>Pic1:</td>
+                <td><%= @vendor.pic1 %></td>
+              </tr>
+              <tr>
+                <td>Position1:</td>
+                <td><%= @vendor.position1 %></td>
+              </tr>
+              <tr>
+                <td>Email1:</td>
+                <td><%= @vendor.email1 %></td>
+              </tr>
+              <tr>
+                <td>Phone1:</td>
+                <td><%= @vendor.phone1 %></td>
+              </tr>
+              <tr>
+                <td>Pic2:</td>
+                <td><%= @vendor.pic2 %></td>
+              </tr>
+              <tr>
+                <td>Position2:</td>
+                <td><%= @vendor.position2 %></td>
+              </tr>
+              <tr>
+                <td>Email2:</td>
+                <td><%= @vendor.email2 %></td>
+              </tr>
+              <tr>
+                <td>Phone2:</td>
+                <td><%= @vendor.phone2 %></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

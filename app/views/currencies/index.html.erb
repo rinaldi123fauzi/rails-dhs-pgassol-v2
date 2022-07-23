@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Currencies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Current name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @currencies.each do |currency| %>
+      <tr>
+        <td><%= currency.current_name %></td>
+        <td><%= link_to '', currency, class: 'fa fa-eye btn btn-sm btn-success', title: "Show" %></td>
+        <td><%= link_to '', edit_currency_path(currency), class: 'fa fa-pencil btn btn-sm btn-warning', title: "Edit" %></td>
+        <td><%= link_to '', currency, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-trash btn btn-sm btn-danger', title: "Delete" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Currency', new_currency_path %>

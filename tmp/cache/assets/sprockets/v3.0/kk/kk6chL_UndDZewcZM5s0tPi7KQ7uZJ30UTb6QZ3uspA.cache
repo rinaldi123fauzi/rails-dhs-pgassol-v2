@@ -1,0 +1,15 @@
+I"7(function() {
+  jQuery(function() {
+    return $('#ItemsIndex').dataTable({
+      sPaginationType: "full_numbers",
+      bJQueryUI: false,
+      scrollY: 300,
+      scrollX: true,
+      bProcessing: true,
+      bServerSide: true,
+      sAjaxSource: $('#ItemsIndex').data('source')
+    });
+  });
+
+}).call(this);
+:ET

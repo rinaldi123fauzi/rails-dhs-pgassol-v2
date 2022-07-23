@@ -1,0 +1,117 @@
+<div class="jarviswidget" id="wid-id-0" data-widget-colorbutton="false"	data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-sortable="false">
+  <!-- widget options:
+  usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+  data-widget-colorbutton="false"
+  data-widget-editbutton="false"
+  data-widget-togglebutton="false"
+  data-widget-deletebutton="false"
+  data-widget-fullscreenbutton="false"
+  data-widget-custombutton="false"
+  data-widget-collapsed="true"
+  data-widget-sortable="false"
+
+  -->
+  <header>
+    <h2>Form </h2>
+  </header>
+
+  <!-- widget div-->
+
+  <div>
+    <!-- widget edit box -->
+    <div class="jarviswidget-editbox">
+      <!-- This area used as dropdown edit box -->
+      <input class="form-control" type="text">
+    </div>
+    <!-- end widget edit box -->
+
+    <!-- widget content -->
+    <div class="widget-body">
+
+      <%= form_for :disipline, url: disiplines_create_path, method: :post do |f| %>
+        <input type="hidden" value="modalbox" name="modalbox">
+        <fieldset>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-8">
+                <label class="control-label">Name</label>
+                <%= f.text_field :name, class: 'form-control', required: true %>
+              </div>
+
+              <div class="col-md-4 selectContainer">
+                <label class="control-label">Kategori</label>
+                <%= f.text_field :category, class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-12 col-md-12">
+                <label class="control-label">Logo</label>
+                <%= f.file_field :logo, class: "form-control", accept: 'file/*', onchange: "validateFiles(this);",
+                                 data: {max_file_size: 10.megabytes}%>
+              </div>
+            </div>
+          </div>
+          <script type="text/javascript">
+              function validateFiles(inputFile) {
+                  var maxExceededMessage = "This file exceeds the maximum allowed file size (100 MB)";
+                  var extErrorMessage = "Only doc file with extension: .png, .jpg or .jpeg is allowed";
+                  var allowedExtension = ["png", "jpeg", "jpg"];
+
+                  var extName;
+                  var maxFileSize = $(inputFile).data('max-file-size');
+                  var sizeExceeded = false;
+                  var extError = false;
+
+                  $.each(inputFile.files, function () {
+                      if (this.size && maxFileSize && this.size > parseInt(maxFileSize)) {
+                          sizeExceeded = true;
+                      }
+                      ;
+                      extName = this.name.split('.').pop();
+                      if ($.inArray(extName, allowedExtension) == -1) {
+                          extError = true;
+                      }
+                      ;
+                  });
+                  if (sizeExceeded) {
+                      window.alert(maxExceededMessage);
+                      $(inputFile).val('');
+                  }
+                  ;
+
+                  if (extError) {
+                      window.alert(extErrorMessage);
+                      $(inputFile).val('');
+                  }
+                  ;
+              }
+
+          </script>
+        </fieldset>
+
+        <div class="form-actions">
+          <div class="row">
+            <div class="col-md-12">
+              <button class="btn btn-default" type="submit">
+                <i class="fa fa-eye"></i>
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+
+      <% end %>
+
+    </div>
+    <!-- end widget content -->
+
+  </div>
+  <!-- end widget div -->
+
+</div>

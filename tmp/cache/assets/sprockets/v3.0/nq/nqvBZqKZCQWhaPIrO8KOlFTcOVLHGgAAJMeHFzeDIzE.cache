@@ -1,0 +1,24 @@
+I"/(function() {
+  jQuery(function() {
+    $('#ItemTable').dataTable({
+      sPaginationType: "full_numbers",
+      bJQueryUI: false,
+      scrollY: 300,
+      scrollX: true,
+      bProcessing: true,
+      bServerSide: true,
+      sAjaxSource: $('#ItemTable').data('source')
+    });
+    return $('#getItemsData').dataTable({
+      sPaginationType: "full_numbers",
+      bJQueryUI: false,
+      scrollY: 300,
+      scrollX: true,
+      bProcessing: true,
+      bServerSide: true,
+      sAjaxSource: $('#getItemsData').data('source')
+    });
+  });
+
+}).call(this);
+:ET

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Delivery place:</strong>
+  <%= @delivery.delivery_place %>
+</p>
+
+<p>
+  <strong>Delivery inconterm:</strong>
+  <%= @delivery.delivery_inconterm %>
+</p>
+
+<p>
+  <strong>Delivery date:</strong>
+  <%= @delivery.delivery_date %>
+</p>
+
+<p>
+  <strong>Delivery vat:</strong>
+  <%= @delivery.delivery_vat %>
+</p>
+
+<p>
+  <strong>Delivery term payment:</strong>
+  <%= @delivery.delivery_term_payment %>
+</p>
+
+<p>
+  <strong>Delivery note:</strong>
+  <%= @delivery.delivery_note %>
+</p>
+
+<%= link_to 'Edit', edit_delivery_path(@delivery) %> |
+<%= link_to 'Back', deliveries_path %>

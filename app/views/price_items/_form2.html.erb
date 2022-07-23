@@ -1,0 +1,152 @@
+<%= form_for(@price_item, html: {role: "form"}) do |f| %>
+  <% if @price_item.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@price_item.errors.count, "error") %> prohibited this price_item from being saved:</h4>
+
+      <ul>
+        <% @price_item.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <input type="hidden" value="form2" name="form2">
+    <div class="form-group">
+      <div class="row">
+        <% if params[:items_id].present? %>
+          <%= f.hidden_field :item_id, value: params[:items_id], class: "form-control" %>
+        <% else %>
+          <div class="col-md-4">
+            <label class="control-label">Items</label>
+            <%= f.collection_select :item_id, Item.order(:id), :id, :general_spec, {prompt: "Select a Items"}, {:class => 'select2'} %>
+          </div>
+        <% end %>
+
+        <div class="col-md-4">
+          <label class="control-label">Currency</label>
+          <%= f.collection_select :currency_id, Currency.order(:current_name), :id, :current_name, {prompt: "Select a Currency"}, {:class => 'select2'} %>
+        </div>
+
+        <div class="col-md-4">
+          <label class="control-label">Vendor</label>
+          <%= f.collection_select :vendor_id, Vendor.order(:name), :id, :name, {prompt: "Select a Vendor"}, {:class => 'select2'} %>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-4">
+          <label class="control-label">Country</label>
+          <%= f.collection_select :country_id, Country.order(:country_name), :id, :country_name, {prompt: "Select a Field"}, {:class => 'select2'} %>
+        </div>
+
+        <div class="col-md-4">
+          <label class="control-label">Referensi Item</label>
+          <%= f.collection_select :referensi_item_id, ReferensiItem.order(:name), :id, :name, {prompt: "Select a Field"}, {:class => 'select2'} %>
+        </div>
+
+        <div class="col-md-4">
+          <label class="control-label">Price Letter</label>
+          <%= f.collection_select :price_letter_id, PriceLetter.order(:price_letter_title), :id, :price_letter_title, {prompt: "Select a Field"}, {:class => 'select2'} %>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-12 col-md-3">
+          <label class="control-label">Place</label>
+          <%= f.text_field :place, class: "form-control" %>
+        </div>
+
+        <div class="col-sm-12 col-md-3">
+          <label class="control-label">Project Name</label>
+          <%= f.text_field :project_name, class: "form-control" %>
+        </div>
+
+        <div class="col-sm-12 col-md-3">
+          <label class="control-label">Incoterm</label>
+          <%= f.text_field :incoterm, class: "form-control" %>
+        </div>
+
+        <div class="col-sm-12 col-md-3">
+          <label class="control-label">Date</label>
+          <% if params[:id].present?
+               priceItem = PriceItem.find(params[:id])
+          %>
+            <input type="text" id="dateformat" value="<%= priceItem.date %>" name="price_item[date]" class="form-control datepicker" data-dateformat='yy-mm-dd'>
+          <% else %>
+            <input type="text" id="dateformat" name="price_item[date]" class="form-control datepicker" data-dateformat='yy-mm-dd'>
+            <b class="tooltip tooltip-top-right">
+              <i class="fa fa-warning txt-color-teal"></i>
+              Please entry...</b>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-12 col-md-3">
+          <label class="control-label">Vat</label>
+          <%= f.select :vat, ['Include', 'Exclude'], {prompt: "Select a vat"}, {:class => 'form-control', required: "true"} %>
+        </div>
+
+        <div class="col-sm-12 col-md-3">
+          <label class="control-label">Term Payment</label>
+          <%= f.text_field :term_payment, class: "form-control" %>
+        </div>
+
+        <div class="col-sm-12 col-md-3">
+          <label class="control-label">Delivery Time</label>
+          <%= f.text_field :delivery_time, class: "form-control" %>
+        </div>
+
+        <div class="col-sm-12 col-md-3">
+          <label class="control-label">Price</label>
+          <input type="" class="form-control realization">
+          <%= f.hidden_field :price, class: "form-control realization_real" %>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group">
+      <label class="control-label">Note</label>
+      <%= f.text_area :note, class: "form-control", rows: 8 %>
+    </div>
+  </fieldset>
+
+  <div class="form-actions">
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-default" type="submit">
+          <i class="fa fa-eye"></i>
+          Validate
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" charset="utf-8">
+      $(".realization").keyup(function () {
+          $('.realization_real').val(this.value.replace(/[^\/\d]/g, ''));
+          data = rupiah_formater(this.value);
+          console.log($('.realization_real').val());
+          this.value = data;
+          console.log(this.value)
+      });
+  </script>
+<% end %>

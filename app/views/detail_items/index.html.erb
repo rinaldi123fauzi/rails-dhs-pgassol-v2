@@ -1,0 +1,39 @@
+<div class="page-header">
+  <%= link_to new_detail_item_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Detail item
+  <% end %>
+  <h1>Listing detail_items</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Unit</th>
+            <th>Dimension2</th>
+            <th>Dimension3</th>
+            <th>Dft</th>
+            <th>Vol solid</th>
+            <th>Spreading rate</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @detail_items) do |detail_item| %>
+            <td><%= detail_item.unit %></td>
+            <td><%= detail_item.dimension2 %></td>
+            <td><%= detail_item.dimension3 %></td>
+            <td><%= detail_item.dft %></td>
+            <td><%= detail_item.vol_solid %></td>
+            <td><%= detail_item.spreading_rate %></td>
+            <td><%= link_to 'Show', detail_item %></td>
+        <td><%= link_to 'Edit', edit_detail_item_path(detail_item) %></td>
+        <td><%= link_to 'Destroy', detail_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,83 @@
+<div id="content">
+  <div class="page-header">
+    <%= link_to :back, class: 'btn btn-default' do %>
+      <span class="glyphicon glyphicon-list-alt"></span>
+      Back
+    <% end %>
+    <%= link_to edit_item_path(@item), class: 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-pencil"></span>
+      Edit
+    <% end %>
+    <h1>Detail item</h1>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            Detail Item
+          </div>
+          <div class="panel-body">
+            <table class="table table-bordered table-striped table-hover">
+              <tbody>
+              <tr>
+                <td colspan="2">Brand</td>
+                <td><%= @items.first.name_brand.try(:to_s) %></td>
+              </tr>
+              <tr>
+                <td colspan="2">Disipline</td>
+                <td><%= @items.first.namedisiplines.try(:name) %></td>
+              </tr>
+              <tr>
+                <td colspan="2">Type</td>
+                <td><%= @items.first.name_type.try(:to_s) %></td>
+              </tr>
+              <tr>
+                <td colspan="2">Product</td>
+                <td><%= @items.first.product_name.try(:to_s) %></td>
+              </tr>
+              <tr>
+                <td colspan="2">Delivery Point</td>
+                <td><%= @items.first.delivery_point.try(:to_s) %></td>
+              </tr>
+              <tr>
+                <td colspan="2">Vendor</td>
+                <td><%= @items.first.namevendors.try(:to_s) %></td>
+              </tr>
+              <tr>
+                <td colspan="2">Size</td>
+                  <td><%= @items.first.size.try(:to_s) %></td>
+              </tr>
+              <tr>
+                <td colspan="2">Class Item</td>
+                <td><%= @items.first.class_item.try(:to_s) %></td>
+              </tr>
+              <tr>
+                <td colspan="2">Dimension</td>
+                <td><%= @items.first.dimension.try(:to_s) %></td>
+              </tr>
+              <tr>
+                <td colspan="2">General Spec</td>
+                <td><%= @items.first.general_spec.try(:to_s) %></td>
+              </tr>
+              <tr>
+                <td colspan="2">Scope of Supply</td>
+                <td><%= @items.first.scope_of_supply.try(:to_s) %></td>
+              </tr>
+              <tr>
+                <td colspan="2">Others</td>
+                <td><%= @items.first.others.try(:to_s) %></td>
+              </tr>
+              <tr>
+                <td colspan="2">Note</td>
+                <td><%= @items.first.note.try(:to_s) %></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

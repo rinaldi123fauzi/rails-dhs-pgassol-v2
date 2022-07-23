@@ -1,0 +1,36 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Form Unit</div>
+  <div class="panel-body">
+    <%= form_for @unit, html: {class: 'form-horizontal'} do |f| %>
+      <% if @unit.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@unit.errors.count, "error") %> prohibited this unit from being saved:</h2>
+
+          <ul>
+            <% @unit.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= f.label :unit_name %>
+            <%= f.text_field :unit_name, class: 'form-control' %>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= link_to 'Cancel', users_path, class: 'btn btn-default' %>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </fieldset>
+    <% end %>
+  </div>
+</div>

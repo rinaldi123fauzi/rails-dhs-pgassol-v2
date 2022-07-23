@@ -1,0 +1,1 @@
+json.partial! "indonesia_districts/indonesia_district", indonesia_district: @indonesia_district

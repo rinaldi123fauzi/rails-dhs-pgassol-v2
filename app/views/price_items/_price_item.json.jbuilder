@@ -1,0 +1,2 @@
+json.extract! price_item, :id, :place, :project_name, :incoterm, :date, :vat, :term_payment, :delivery_time, :price, :status, :note, :last, :created_at, :updated_at
+json.url price_item_url(price_item, format: :json)

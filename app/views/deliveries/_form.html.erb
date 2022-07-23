@@ -1,0 +1,47 @@
+<%= form_for(delivery) do |f| %>
+  <% if delivery.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(delivery.errors.count, "error") %> prohibited this delivery from being saved:</h2>
+
+      <ul>
+      <% delivery.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :delivery_place %>
+    <%= f.text_field :delivery_place %>
+  </div>
+
+  <div class="field">
+    <%= f.label :delivery_inconterm %>
+    <%= f.text_field :delivery_inconterm %>
+  </div>
+
+  <div class="field">
+    <%= f.label :delivery_date %>
+    <%= f.date_select :delivery_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :delivery_vat %>
+    <%= f.number_field :delivery_vat %>
+  </div>
+
+  <div class="field">
+    <%= f.label :delivery_term_payment %>
+    <%= f.text_field :delivery_term_payment %>
+  </div>
+
+  <div class="field">
+    <%= f.label :delivery_note %>
+    <%= f.text_field :delivery_note %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

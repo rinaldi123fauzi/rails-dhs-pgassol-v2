@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="6206fa27-74b3-4d16-80ee-335789a23b0e" name="DMS" url="http://192.168.60.48">
+        <fileTransfer host="192.168.60.48" port="22" rootFolder="/var/www/dms" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="8bfee758-8291-4781-b840-6d967cc4acfe" name="RISK" url="http://192.168.60.135">
+        <fileTransfer host="192.168.60.135" port="22" rootFolder="/var/www/develop-risk" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="d3ca4708-79f1-4aed-9c13-82b3c23f960d" name="DMS-Prod" url="http://192.168.60.98">
+        <fileTransfer host="192.168.60.98" port="22" rootFolder="/var/www/dms" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="c3e18890-6263-41fd-83b9-17fe74678ed6" name="dhs_rebuild" url="http://192.168.60.56">
+        <fileTransfer host="192.168.60.56" port="22" rootFolder="/var/www/html/dhs_rebuild" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="e828a0a8-00fb-4e70-a0dc-2db028594039" name="Cosmo" url="http://192.168.60.48">
+        <fileTransfer host="192.168.60.48" port="22" rootFolder="/var/www/html/cosmo" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="24007be5-79fb-442d-b571-aede6d900a4e" name="dhs_production" url="http://192.168.60.97">
+        <fileTransfer host="192.168.60.97" port="22" rootFolder="/var/www/html/dhs_rebuild" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="d944f0f1-c8e8-4de6-9d57-8c63106bb5f8" name="PIS_Prod" url="http://192.168.60.39">
+        <fileTransfer host="192.168.60.39" port="22" rootFolder="/home/nimda/pis" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

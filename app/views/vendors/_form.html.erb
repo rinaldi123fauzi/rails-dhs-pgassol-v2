@@ -1,0 +1,153 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Form Vendor</div>
+  <div class="panel-body">
+    <%= form_for @vendor, html: {class: 'form-horizontal'} do |f| %>
+      <% if @vendor.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@vendor.errors.count, "error") %> prohibited this vendor from being saved:</h2>
+
+          <ul>
+            <% @vendor.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= f.label :country_id %>
+            <%= f.collection_select :country_id, Country.order(:country_name), :id, :country_name, {prompt: "Select a Country"}, {:class => 'select2'} %>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= f.label :business_category %>
+            <%= f.text_field :business_category, class: 'form-control' %>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= f.label :address %>
+            <%= f.text_field :address, class: 'form-control' %>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= f.label :website %>
+            <%= f.text_field :website, class: 'form-control' %>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= f.label :email %>
+            <%= f.text_field :email, class: 'form-control' %>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= f.label :phone_number %>
+            <%= f.text_field :phone_number, class: 'form-control' %>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= f.label :pic1 %>
+            <%= f.text_field :pic1, class: 'form-control' %>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= f.label :position1 %>
+            <%= f.text_field :position1, class: 'form-control' %>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= f.label :email1 %>
+            <%= f.text_field :email1, class: 'form-control' %>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= f.label :phone1 %>
+            <%= f.text_field :phone1, class: 'form-control' %>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= f.label :pic2 %>
+            <%= f.text_field :pic2, class: 'form-control' %>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= f.label :position2 %>
+            <%= f.text_field :position2, class: 'form-control' %>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= f.label :email2 %>
+            <%= f.text_field :email2, class: 'form-control' %>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= link_to 'Cancel', vendors_path, class: 'btn btn-default' %>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </fieldset>
+    <% end %>
+  </div>
+</div>

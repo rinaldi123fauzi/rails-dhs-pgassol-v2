@@ -1,0 +1,39 @@
+<div id="content">
+  <div class="page-header">
+    <%= link_to disiplines_path, class: 'btn btn-default' do %>
+      <span class="glyphicon glyphicon-list-alt"></span>
+      Back
+    <% end %>
+    <%= link_to edit_disipline_path(@disipline), class: 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-pencil"></span>
+      Edit
+    <% end %>
+    <h1>Show Disipline</h1>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            Detail Disipline
+          </div>
+          <div class="panel-body">
+            <table class="table table-bordered table-striped table-hover">
+              <tbody>
+              <tr>
+                <td>Name:</td>
+                <td><%= @disipline.name.try(:to_s) %></td>
+              </tr>
+              <tr>
+                <td>Logo:</td>
+                <td><%= @disipline.logo.try(:to_s) %></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<section style="background-image: url('<%= asset_path "background_homepage.jpg" %>'); height: auto; background-position: center; background-size: cover; background-repeat: no-repeat;">
+<%= render 'layouts/items_home_style' %>
+<section class="info">
+  <img src="https://codetheweb.blog/assets/img/icon2.png">
+  <h1>Home Items</a></h1>
+</section>
+<section class="cards-wrapper">
+  <% @disiplines = Disipline.all().order('name ASC') %>
+  <% @disiplines.each do |f| %>
+    <div class="card-grid-space">
+      <div>
+        <b style="font-size: 18px; font-style: oblique;"><%= f.name %></b>
+      </div>
+      <% unless f.logo.nil? %>
+        <a class="card" href="<%= items_table_dashboard_index_path(f.id) %>" style="background-image: url('<%= asset_path f.logo %>');"></a>
+      <% else %>
+        <a class="card" href="<%= items_table_dashboard_index_path(f.id) %>"></a>
+      <% end %>
+      <% if current_user.roles.any? { |r| r.name == "Superadmin" } %>
+        <div class="project-context">
+          <span style="color: white" class="project-selector dropdown-toggle" data-toggle="dropdown" style="color: black; font-size: medium;"><i class="fa fa-angle-down"></i></span>
+          <ul class="dropdown-menu">
+            <li>
+              <%= link_to edit_modalbox_disiplines_path(f.id), remote: true do %>
+                Edit nama / logo Disiplin
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      <% end %>
+      <%= getTotalItemsBaseDisipline(f.id) %>
+    </div>
+  <% end %>
+  <%= render 'layouts/modal' %>
+  <!-- https://images.unsplash.com/photo-1520839090488-4a6c211e2f94?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=38951b8650067840307cba514b554ba5&auto=format&fit=crop&w=1350&q=80 -->
+</section>

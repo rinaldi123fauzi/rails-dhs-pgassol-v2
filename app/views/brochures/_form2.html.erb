@@ -1,0 +1,70 @@
+<%= form_for :brochure, url: brochures_create_path, method: :post do |f|%>
+  <input type="hidden" name="itemShow" value="itemShow">
+  <input type="hidden" name="brochure[item_id]" value="<%= params[:items_id] %>">
+
+  <div id="error_explanation" class="bg-danger text-danger"></div>
+
+  <div class="modal-body">
+    <div class="smart-form">
+      <div class="row">
+        <section>
+          <label class="label">
+            Brochure Title
+          </label>
+          <label class="input">
+            <%= f.text_field :brochure_title, class: "form-control", required: true%>
+          </label>
+        </section>
+        <section>
+          <label class="label">
+            Brochure Path
+          </label>
+          <label class="input">
+            <%= f.file_field :brochure_path, class: "form-control", accept: 'file/*', onchange: "validateFiles(this);", required: true,
+                             data: {max_file_size: 100.megabytes}%>
+          </label>
+        </section>
+        <script type="text/javascript">
+            function validateFiles(inputFile) {
+                var maxExceededMessage = "This file exceeds the maximum allowed file size (100 MB)";
+                var extErrorMessage = "Only doc file with extension: .pdf or .docs is allowed";
+                var allowedExtension = ["pdf","docs"];
+
+                var extName;
+                var maxFileSize = $(inputFile).data('max-file-size');
+                var sizeExceeded = false;
+                var extError = false;
+
+                $.each(inputFile.files, function () {
+                    if (this.size && maxFileSize && this.size > parseInt(maxFileSize)) {
+                        sizeExceeded = true;
+                    }
+                    ;
+                    extName = this.name.split('.').pop();
+                    if ($.inArray(extName, allowedExtension) == -1) {
+                        extError = true;
+                    }
+                    ;
+                });
+                if (sizeExceeded) {
+                    window.alert(maxExceededMessage);
+                    $(inputFile).val('');
+                }
+                ;
+
+                if (extError) {
+                    window.alert(extErrorMessage);
+                    $(inputFile).val('');
+                }
+                ;
+            }
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <a type="button" class="btn btn-default" data-dismiss="modal">Close</a>
+    <%= f.submit "Upload File", class: 'btn btn-primary' %>
+  </div>
+<% end %>

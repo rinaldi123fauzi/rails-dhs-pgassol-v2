@@ -1,0 +1,1 @@
+json.partial! "referensi_items/referensi_item", referensi_item: @referensi_item

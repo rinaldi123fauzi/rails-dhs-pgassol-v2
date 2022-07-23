@@ -1,0 +1,1 @@
+json.array! @delivery_items, partial: 'delivery_items/delivery_item', as: :delivery_item

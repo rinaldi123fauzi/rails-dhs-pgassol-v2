@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="192.168.60.48" id="2628c026-81f2-4e89-ba45-f2027ea99e9b" port="22" customName="DMS" nameFormat="CUSTOM">
+        <option name="customName" value="DMS" />
+      </sshConfig>
+      <sshConfig authType="PASSWORD" host="192.168.60.135" id="15e908e4-6246-42c0-820e-bca6d3d047c9" port="22" customName="RISK" nameFormat="CUSTOM">
+        <option name="customName" value="RISK" />
+      </sshConfig>
+      <sshConfig authType="PASSWORD" host="192.168.60.98" id="fb209d56-5fa3-4d17-b35a-4e0d6656de8c" port="22" customName="DMS-Prod" nameFormat="CUSTOM">
+        <option name="customName" value="DMS-Prod" />
+      </sshConfig>
+      <sshConfig authType="PASSWORD" host="192.168.60.56" id="c6a42917-cf23-4e76-acd2-654c74945bb9" port="22" customName="dhs_rebuild" nameFormat="CUSTOM">
+        <option name="customName" value="dhs_rebuild" />
+      </sshConfig>
+      <sshConfig authType="PASSWORD" host="192.168.60.97" id="4319ff15-32b0-4e86-b5f1-bd9acc3ba634" port="22" customName="dhs_production" nameFormat="CUSTOM">
+        <option name="customName" value="dhs_production" />
+      </sshConfig>
+      <sshConfig authType="PASSWORD" host="192.168.60.39" id="a6028e01-e55f-4163-9a85-966e58a1c1df" port="22" customName="PIS_Prod" nameFormat="CUSTOM">
+        <option name="customName" value="PIS_Prod" />
+      </sshConfig>
+    </configs>
+  </component>
+</project>

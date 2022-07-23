@@ -1,0 +1,106 @@
+<% content_for :html_id, "extr-page" %>
+<% content_for :body_class, "animated fadeInDown" %>
+<% content_for :top_right do %>
+<% end %>
+<!-- MAIN CONTENT -->
+<div id="content" class="container">
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
+      <div class="hero">
+
+        <div class="pull-left login-desc-box-l">
+          <h4 class="paragraph-header"></h4>
+          <div class="login-app-icons">
+
+            <%# <%= image_tag 'document-management-system.jpg', class: 'pull-left display-image', alt: '', style: 'width:500px' %>
+            <span id="logo"> <%= image_tag 'dhs-logo.png', alt: '', class: 'pull-left display-image', style: "width: 500px;" %> </span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <br>
+    <br>
+    <span style="margin-left: 30%;" id="logo" class="hidden-md hidden-lg"> <%= image_tag 'dhs-logo.png', alt: '', class: 'pull-left display-image', style: "width: 150px;" %> </span>
+    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
+      <div class="well no-padding">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {id: 'login-form', class: 'smart-form client-form'}) do |f| %>
+          <header>
+            Sign In
+          </header>
+
+          <fieldset>
+
+            <section>
+              <label class="label">Username</label>
+              <label class="input"> <i class="icon-append fa fa-user"></i>
+                <%= f.text_field :username, autofocus: true, :required => true %>
+                <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Please enter username</b>
+              </label>
+            </section>
+
+            <section>
+              <label class="label">Password</label>
+              <label class="input"> <i class="icon-append fa fa-lock"></i>
+                <%= f.password_field :password, autofocus: true, :required => true %>
+                <b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Enter your password</b>
+              </label>
+            </section>
+
+            <!--            <section>-->
+            <!--              <label class="checkbox">-->
+            <%#= f.check_box :remember_me %>
+            <!--                <i></i>Stay signed in</label>-->
+            <!--            </section>-->
+          </fieldset>
+          <footer>
+            <button type="submit" class="btn btn-primary">
+              Sign in
+            </button>
+          </footer>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<% content_for :scripts do %>
+  <script type="text/javascript">
+      $(function() {
+          // Validation
+          $("#login-form").validate({
+              // Rules for form validation
+              rules : {
+                  email : {
+                      required : true,
+                      email : true
+                  },
+                  password : {
+                      required : true,
+                      minlength : 3,
+                      maxlength : 20
+                  }
+              },
+
+              // Messages for form validation
+              messages : {
+                  email : {
+                      required : 'Please enter your email address',
+                      email : 'Please enter a VALID email address'
+                  },
+                  password : {
+                      required : 'Please enter your password'
+                  }
+              },
+
+              // Do not change code below
+              errorPlacement : function(error, element) {
+                  error.insertAfter(element.parent());
+              }
+          });
+      });
+  </script>
+<% end %>

@@ -1,0 +1,36 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Form Brand</div>
+  <div class="panel-body">
+    <%= form_for @brand, html: {class: 'form-horizontal'} do |f| %>
+      <% if @brand.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@brand.errors.count, "error") %> prohibited this brand from being saved:</h2>
+
+          <ul>
+            <% @brand.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= f.label :name_brand %>
+            <%= f.text_field :name_brand, class: 'form-control' %>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <%= link_to 'Cancel', brands_path, class: 'btn btn-default' %>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </fieldset>
+    <% end %>
+  </div>
+</div>

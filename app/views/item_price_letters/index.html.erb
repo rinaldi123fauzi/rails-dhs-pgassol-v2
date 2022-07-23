@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= link_to new_item_price_letter_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Item price letter
+  <% end %>
+  <h1>Listing item_price_letters</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Item</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @item_price_letters) do |item_price_letter| %>
+            <td><%= item_price_letter.item %></td>
+            <td><%= link_to 'Show', item_price_letter %></td>
+        <td><%= link_to 'Edit', edit_item_price_letter_path(item_price_letter) %></td>
+        <td><%= link_to 'Destroy', item_price_letter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
